@@ -72,6 +72,21 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
     setNumItems(numItems - product.quantity);         
   }
 
+  /*
+  * Updates the product quantity
+  */
+  const handleQuantityChange = (product, newQuantity) => {
+    const updatedProductsInCart = { ...productsInCart, [product.id]: { ...product, quantity: newQuantity } };
+    setProductsInCart(updatedProductsInCart);
+
+    // Recalculate total items and subtotal
+    /**const totalItems = Object.values(updatedProductsInCart).reduce((acc, item) => acc + item.quantity, 0);
+    setNumItems(totalItems);
+
+    const subtotal = Object.values(updatedProductsInCart).reduce((total, product) => total + (product.unitPrice * product.quantity), 0);
+    setSubtotal(subtotal);**/
+};
+
 
   return (
     // The Cart opens as a Popover
@@ -164,12 +179,24 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
                                       <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
-                                      <p className="text-gray-500">Qty {product.quantity}</p>
+                                      
+                                    <div className="flex flex-1 items-center text-sm">
+                                      <p className="text-gray-500 mr-2">Qty.</p>
+                                      <select
+                                          value={product.quantity}
+                                          onChange={(e) => handleQuantityChange(product, parseInt(e.target.value))}
+                                          className="w-14 rounded-md border border-gray-300 py-2.5 text-left text-base font-medium leading-5 text-gray-700 focus:border-[#a99a78] focus:outline-none focus:ring-1 focus:ring-[#a99a78] sm:text-sm"
+                                      >
+                                          {[...Array(8)].map((_, index) => (
+                                              <option key={index} value={index + 1}>{index + 1}</option>
+                                          ))}
+                                      </select>
+                                  </div>
 
                                       <div className="flex">
                                         <button
                                           type="button"
-                                          className="font-medium text-[#a99a78] hover:text-indigo-500 underline"
+                                          className="font-medium text-[#a99a78] hover:text-black underline"
                                           onClick={() => handleRemoveButton(product)}
                                         >
                                           Remove
