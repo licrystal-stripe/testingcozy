@@ -14,10 +14,6 @@ export default function EmbeddedCheckoutSession() {
   const router = useRouter();
   const {productsInCart, itemsInCart} = router.query;
 
-  useEffect(() => {
-    // Use the values of openCart, itemsInCart, and subtotal here
-  }, [productsInCart]);
-
   
   const fetchClientSecret = useCallback(() => {
     // Create a Checkout Session
