@@ -5,7 +5,6 @@ import {
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import {useRouter } from 'next/router';
-import NavigationBar from '@/components/NavigationBar';
 import CheckoutNavigationBar from '@/components/CheckoutNavigationBar';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -14,9 +13,8 @@ export default function EmbeddedCheckoutSession() {
   const router = useRouter();
   const {productsInCart, itemsInCart} = router.query;
 
-  
+  // Create a Checkout Session - call the embedded_checkout_sessions API
   const fetchClientSecret = useCallback(() => {
-    // Create a Checkout Session
     return fetch("/api/embedded_checkout_sessions", {
       method: "POST",
       headers: {
@@ -24,7 +22,9 @@ export default function EmbeddedCheckoutSession() {
       },
       body: JSON.stringify({
         productsInCart: productsInCart,
-        itemsInCart: itemsInCart }),
+        itemsInCart: itemsInCart,
+        customer: 'cus_QZqouYFt2OOved'
+       }),
     })
       .then((res) => res.json())
       .then((data) => data.clientSecret);
@@ -33,18 +33,17 @@ export default function EmbeddedCheckoutSession() {
   const options = {fetchClientSecret};
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-white">
       <CheckoutNavigationBar></CheckoutNavigationBar>
       <div id="checkout">
-      <EmbeddedCheckoutProvider
-        stripe={stripePromise}
-        options={options}
-      >
-        <EmbeddedCheckout />
-      </EmbeddedCheckoutProvider>
-    </div>
-      <br></br>
-      
+        <EmbeddedCheckoutProvider
+          stripe={stripePromise}
+          options={options}
+        >
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+     </div>
+     <br></br>
     </div>
     
   )

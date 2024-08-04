@@ -1,3 +1,4 @@
+{/**Constant file to declutter the code on the main pages */}
 export const allProducts = [
     {
       id: 1,
@@ -158,6 +159,90 @@ export const relatedProducts = [
 export function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 } 
+
+export const filters = [
+  {
+    id: 'category',
+    name: 'Category',
+    options: [
+      { value: 'tees', label: 'Tees' },
+      { value: 'crewnecks', label: 'Crewnecks' },
+      { value: 'hats', label: 'Hats' },
+      { value: 'bundles', label: 'Bundles' },
+      { value: 'carry', label: 'Carry' },
+      { value: 'objects', label: 'Objects' },
+    ],
+  },
+  {
+    id: 'brand',
+    name: 'Brand',
+    options: [
+      { value: 'clothing-company', label: 'Clothing Company' },
+      { value: 'fashion-inc', label: 'Fashion Inc.' },
+      { value: 'shoes-n-more', label: "Shoes 'n More" },
+      { value: 'supplies-n-stuff', label: "Supplies 'n Stuff" },
+    ],
+  },
+  {
+    id: 'color',
+    name: 'Color',
+    options: [
+      { value: 'white', label: 'White' },
+      { value: 'black', label: 'Black' },
+      { value: 'grey', label: 'Grey' },
+      { value: 'blue', label: 'Blue' },
+      { value: 'olive', label: 'Olive' },
+      { value: 'tan', label: 'Tan' },
+    ],
+  },
+  {
+    id: 'sizes',
+    name: 'Sizes',
+    options: [
+      { value: 'xs', label: 'XS' },
+      { value: 's', label: 'S' },
+      { value: 'm', label: 'M' },
+      { value: 'l', label: 'L' },
+      { value: 'xl', label: 'XL' },
+      { value: '2xl', label: '2XL' },
+    ],
+  },
+]
+
+export const sortOptions = [
+  { name: 'Most Popular', href: '#' },
+  { name: 'Best Rating', href: '#' },
+  { name: 'Newest', href: '#' },
+  { name: 'Price: Low to High', href: '#' },
+  { name: 'Price: High to Low', href: '#' },
+]
+
+export const footerNavigationItems = {
+  products: [
+    { name: 'Bags', href: '#' },
+    { name: 'Tees', href: '#' },
+    { name: 'Objects', href: '#' },
+    { name: 'Home Goods', href: '#' },
+    { name: 'Accessories', href: '#' },
+  ],
+  company: [
+    { name: 'Who we are', href: '#' },
+    { name: 'Sustainability', href: '#' },
+    { name: 'Press', href: '#' },
+    { name: 'Careers', href: '#' },
+    { name: 'Terms & Conditions', href: '#' },
+    { name: 'Privacy', href: '#' },
+  ],
+  customerService: [
+    { name: 'Contact', href: '#' },
+    { name: 'Shipping', href: '#' },
+    { name: 'Returns', href: '#' },
+    { name: 'Warranty', href: '#' },
+    { name: 'Secure Payments', href: '#' },
+    { name: 'FAQ', href: '#' },
+    { name: 'Find a store', href: '#' },
+  ],
+}
 
 export const mainPageCenterText = "New Arrivals";
 export const mainPageDescriptionText = "Thoughtfully designed objects for the workspace, home, and travel."

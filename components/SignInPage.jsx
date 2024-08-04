@@ -1,30 +1,21 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+import {useRouter } from 'next/router';
+
+{/** Page for a customer to sign in to the website
+  *  Still workshopping on whether or not this would be helpful during a demo to have
+  */}
 export default function SignInPage() {
+  const router = useRouter();
+
+  const handleSignInClick = (e) => {
+    e.preventDefault();
+    router.push({
+      pathname:'/'
+    })
+  }
     return (
       <>
-        {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
         <div className="flex min-h-full flex-1">
-          <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-white">
+          <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-[#faf7f0]">
             <div className="mx-auto w-full max-w-sm lg:w-96">
               <div>
                 <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -32,7 +23,7 @@ export default function SignInPage() {
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-gray-500">
                   Not a member?{' '}
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="font-semibold text-[#a99a78] hover:text-indigo-500">
                     Start a 14 day free trial
                   </a>
                 </p>
@@ -79,7 +70,7 @@ export default function SignInPage() {
                           id="remember-me"
                           name="remember-me"
                           type="checkbox"
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          className="h-4 w-4 rounded border-gray-300 text-[#a99a78] focus:ring-indigo-600"
                         />
                         <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-gray-700">
                           Remember me
@@ -87,19 +78,23 @@ export default function SignInPage() {
                       </div>
   
                       <div className="text-sm leading-6">
-                        <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                        <a href="#" className="font-semibold text-[#a99a78] hover:text-indigo-500">
                           Forgot password?
                         </a>
                       </div>
                     </div>
   
                     <div>
+                    <a href="/">
+                    
                       <button
                         type="submit"
-                        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="flex w-full justify-center rounded-md bg-[#1e2525] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#565c5c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={handleSignInClick}
                       >
                         Sign in
                       </button>
+                      </a>
                     </div>
                   </form>
                 </div>
@@ -161,7 +156,7 @@ export default function SignInPage() {
           <div className="relative hidden w-0 flex-1 lg:block">
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+              src="./signInFabric.png"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

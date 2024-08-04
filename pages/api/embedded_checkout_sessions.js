@@ -2,7 +2,10 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   const productsInCart = JSON.parse(req.body.productsInCart);
+  const customer = (req.body.customer)
+  let session = undefined
   switch (req.method) {
+    //Creating a checkout session with the items passed in from the request
     case "POST":
       try {
         const lineItems = Object.values(productsInCart).map((product) => {
@@ -16,22 +19,39 @@ export default async function handler(req, res) {
               },
             },
             quantity: product.quantity,
+            adjustable_quantity: {
+              enabled: true,  
+              maximum: 10,  
+              minimum: 1,  
+            },
           };
         });
-        // Create Checkout Sessions from body params.
-        const session = await stripe.checkout.sessions.create({
-          ui_mode: 'embedded',
-          line_items: lineItems,
-          mode: 'payment',
-          return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
-          automatic_tax: {enabled: true},
-        });
-
+        // Create Checkout Sessions from body params - if we pass in a customer then we will create the checkout
+        // session with a customer, otherwise it will be a guest checkout
+        if (customer) {
+          session = await stripe.checkout.sessions.create({
+            ui_mode: 'embedded',
+            line_items: lineItems,
+            mode: 'payment',
+            return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
+            automatic_tax: {enabled: true},
+            customer: customer
+          });
+        } else {
+          session = await stripe.checkout.sessions.create({
+            ui_mode: 'embedded',
+            line_items: lineItems,
+            mode: 'payment',
+            return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
+            automatic_tax: {enabled: true},
+          });
+        }
         res.send({clientSecret: session.client_secret});
       } catch (err) {
         res.status(err.statusCode || 500).json(err.message);
       }
       break;
+    //If we ever need to recover a checkout session
     case "GET":
       try {
         const session =

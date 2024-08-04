@@ -1,9 +1,8 @@
-'use client'
-
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/24/outline'
 
+{/** Banner that pops up when a payment is successful and you redirect to the home page */}
 export default function PaymentSuccessfulBanner() {
   const [open, setOpen] = useState(true)
 

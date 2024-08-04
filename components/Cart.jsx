@@ -49,7 +49,7 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
     const productsInCartJson = JSON.stringify(productsInCart)
     setOpenCart(false)
     router.push({
-      pathname: '/payment-element-updated',
+      pathname: '/payment-element',
       query: {
         productsInCart: productsInCartJson, 
         subtotal: subtotal,
@@ -100,7 +100,7 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <div className="fixed inset-0 bg-white bg-opacity-75 transition-opacity" />
           </TransitionChild>
 
           {/* This is the body of the Cart */}
