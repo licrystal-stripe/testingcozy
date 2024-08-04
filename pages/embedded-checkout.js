@@ -13,10 +13,6 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function EmbeddedCheckoutSession() {
   const router = useRouter();
   const {productsInCart, itemsInCart} = router.query;
-  console.log("In embedded components")
-  console.log("figure out why this is undefined")
-  console.log(JSON.parse(productsInCart))
-  console.log(itemsInCart)
 
   useEffect(() => {
     // Use the values of openCart, itemsInCart, and subtotal here
