@@ -4,7 +4,7 @@ import HomePage from '@/components/HomePage';
 import Layout from '@/components/Layout';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import PaymentSuccessfulBanner from '@/components/PaymentSuccessfulBanner';
+import PaymentSuccessfulBanner from '@/components/MainPageComponents/PaymentSuccessfulBanner';
 import {useState } from 'react'
 
 export default function index() {

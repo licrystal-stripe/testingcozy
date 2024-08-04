@@ -1,5 +1,5 @@
-import Cart from './Cart'  
-import NavigationBarCategories from './NavigationBarCategories';
+import Cart from './NavigationBarComponents/Cart'  
+import NavigationBarCategories from './NavigationBarComponents/NavigationBarCategories';
 
 {/** Navigation Bar at the top, used in Layout to provide a consistent Navigation/Footer experience across pages */}
 export default function NavigationBar({numItems, productsInCart, setProductsInCart, setNumItems}) {

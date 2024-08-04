@@ -1,5 +1,5 @@
 import NavigationBar from "@/components/NavigationBar"
-import SignInPage from "@/components/SignInPage"
+import SignInPage from "@/components/NavigationBarComponents/SignInPage"
 import FooterComponent from "@/components/FooterComponent"
 export default function SignIn() {
     return (

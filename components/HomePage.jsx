@@ -1,6 +1,6 @@
-import Filters from "./Filters"
-import ProductGrid from "./ProductGrid"
-import FeaturedCollection from "./FeaturedCollection"
+import Filters from "./MainPageComponents/Filters"
+import ProductGrid from "./MainPageComponents/ProductGrid"
+import FeaturedCollection from "./MainPageComponents/FeaturedCollection"
 import { mainPageCenterText, mainPageDescriptionText } from "@/utils/constants"
 import { allProducts } from "@/utils/constants"
 export default function HomePage ({addToCart}) {

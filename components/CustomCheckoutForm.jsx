@@ -9,8 +9,8 @@ import {
 } from "@stripe/react-stripe-js";
 
 import {AddressElement} from '@stripe/react-stripe-js';
-import { DeliveryMethod } from './DeliveryMethod';
-import OrderSummary from './OrderSummary';
+import { DeliveryMethod } from './CustomPaymentFormComponents/DeliveryMethod';
+import OrderSummary from './CustomPaymentFormComponents/OrderSummary';
 
 
 export default function CheckoutForm({parsedProducts, subtotal}) {

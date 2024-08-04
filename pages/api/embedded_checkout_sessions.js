@@ -26,26 +26,31 @@ export default async function handler(req, res) {
             },
           };
         });
-        // Create Checkout Sessions from body params - if we pass in a customer then we will create the checkout
-        // session with a customer, otherwise it will be a guest checkout
-        if (customer) {
+
+        //Creating a Checkout Session to show Adaptive Pricing
+        session = await stripe.checkout.sessions.create({
+          ui_mode: 'embedded',
+          line_items: lineItems,
+          mode: 'payment',
+          return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
+          automatic_tax: {enabled: true},
+          customer_email: 'AdaptivePricing+location_FR@example.com'
+        });
+
+        // This is code to implement in the future if I implement the sign in button, if they already have signed in 
+        // then we should just be passing in their customer object
+        /**if (customer) {
           session = await stripe.checkout.sessions.create({
             ui_mode: 'embedded',
             line_items: lineItems,
             mode: 'payment',
             return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
             automatic_tax: {enabled: true},
-            customer: customer
+            customer: customer,
           });
         } else {
-          session = await stripe.checkout.sessions.create({
-            ui_mode: 'embedded',
-            line_items: lineItems,
-            mode: 'payment',
-            return_url: `${req.headers.origin}/?payment_status=success`, // Redirect with a success query param          
-            automatic_tax: {enabled: true},
-          });
-        }
+          
+        }**/
         res.send({clientSecret: session.client_secret});
       } catch (err) {
         res.status(err.statusCode || 500).json(err.message);

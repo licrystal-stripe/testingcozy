@@ -23,7 +23,7 @@ export default function EmbeddedCheckoutSession() {
       body: JSON.stringify({
         productsInCart: productsInCart,
         itemsInCart: itemsInCart,
-        customer: 'cus_QZqouYFt2OOved'
+        customer: 'cus_QZqouYFt2OOved',
        }),
     })
       .then((res) => res.json())
@@ -33,9 +33,9 @@ export default function EmbeddedCheckoutSession() {
   const options = {fetchClientSecret};
 
   return (
-    <div className="bg-white">
+    <div>
       <CheckoutNavigationBar></CheckoutNavigationBar>
-      <div id="checkout">
+      <div id="checkout" >
         <EmbeddedCheckoutProvider
           stripe={stripePromise}
           options={options}
