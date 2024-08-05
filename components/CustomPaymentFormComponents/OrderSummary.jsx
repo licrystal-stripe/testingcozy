@@ -38,25 +38,6 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit}) 
 
                                 <div className="flex space-x-4">
                                   <p className="text-gray-500">Qty: {product.quantity}</p>
-                                  {/*<div className="ml-4">
-                                    <label htmlFor="quantity" className="sr-only">
-                                      Quantity
-                                    </label>
-                                    <select
-                                      id="quantity"
-                                      name="quantity"
-                                      className="rounded-md border border-gray-300 text-left text-base font-medium text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-                                    >
-                                      <option value={1}>1</option>
-                                      <option value={2}>2</option>
-                                      <option value={3}>3</option>
-                                      <option value={4}>4</option>
-                                      <option value={5}>5</option>
-                                      <option value={6}>6</option>
-                                      <option value={7}>7</option>
-                                      <option value={8}>8</option>
-                                    </select>
-                                  </div>**/}
                                 </div>
                             </div>
                         </div>

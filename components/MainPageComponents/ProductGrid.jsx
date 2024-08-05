@@ -43,7 +43,7 @@ const handleImageClick = (clickedProduct) => {
                       <a
                         href={product.href}
                         onClick={() => addToCart(product)}
-                        className="absolute left-1/2 bottom-20 flex items-center justify-center bg-[#1e2525] text-white rounded-md h-12 w-3/4 transform -translate-x-1/2 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                        className="absolute left-1/2 flex items-center justify-center bg-[#1e2525] text-white rounded-md h-12 w-3/4 transform -translate-x-1/2  -translate-y-1/2 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                         style={{ bottom: '100px' }}
                         >
                         {quickAddButtonText} <span className="sr-only">, {product.name}</span>

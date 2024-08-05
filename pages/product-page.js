@@ -71,8 +71,8 @@ export default function ProductPage() {
             {/** Informaiton on the Product and the "Buy now" button */}
             <div className="mt-8 lg:col-span-5">
               <form>
-                {/* Color picker */}
-                <ColorPicker></ColorPicker>
+                {/* Color picker - not working right now, but can go back and try to figure this out later */}
+                {/*<ColorPicker></ColorPicker>*/}
 
                 {/* Size picker */}
                 <SizePicker></SizePicker>

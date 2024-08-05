@@ -7,6 +7,7 @@ import { productPageDetails, classNames } from '@/utils/constants';
 
 export default function ColorPicker() {
     const [selectedColor, setSelectedColor] = useState(productPageDetails.colors[0])
+    console.log(productPageDetails.colors)
     return (
         <div>
                 <h2 className="text-sm font-medium text-gray-900">Color</h2>
@@ -30,6 +31,8 @@ export default function ColorPicker() {
                             'h-8 w-8 rounded-full border border-black border-opacity-10',
                           )}
                         />
+                        {console.log(color.bgColor)} 
+                        {console.log(color.selectedColor)}
                       </Radio>
                     ))}
                   </RadioGroup>

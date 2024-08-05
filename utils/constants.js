@@ -196,7 +196,7 @@ export const productPageDetails = {
         'Pre-washed and pre-shrunk',
         'Machine wash cold with similar colors',
       ],
-    }
+}
 
 
 export const reviews = {
