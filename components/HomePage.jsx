@@ -1,8 +1,8 @@
 import Filters from "./MainPageComponents/Filters"
 import ProductGrid from "./MainPageComponents/ProductGrid"
 import FeaturedCollection from "./MainPageComponents/FeaturedCollection"
-import { mainPageCenterText, mainPageDescriptionText } from "@/utils/constants"
-import { allProducts } from "@/utils/constants"
+import { bottomRowProducts, mainPageCenterText, mainPageDescriptionText, middleRowProducts } from "@/utils/constants"
+import { topRowProducts } from "@/utils/constants"
 export default function HomePage ({addToCart}) {
     return (
         <main className="pb-10 bg-[#faf7f0]">
@@ -30,13 +30,16 @@ export default function HomePage ({addToCart}) {
             <Filters></Filters>
 
             {/* First row of featured Products */}
-            <ProductGrid addToCart={addToCart} products={allProducts}></ProductGrid>
+            <ProductGrid addToCart={addToCart} products={topRowProducts}></ProductGrid>
       
             {/* Banner for the Featured Colection */}
             <FeaturedCollection></FeaturedCollection>
 
             {/* Second row of featured Products */}
-            <ProductGrid addToCart={addToCart} products={allProducts}></ProductGrid>
+            <ProductGrid addToCart={addToCart} products={middleRowProducts}></ProductGrid>
+
+             {/* Third row of featured Products */}
+             <ProductGrid addToCart={addToCart} products={bottomRowProducts}></ProductGrid>
           </div>
         </main>
     )

@@ -1,39 +1,113 @@
 {/**Constant file to declutter the code on the main pages */}
-export const allProducts = [
+export const topRowProducts = [
     {
       id: 1,
-      name: 'Focus Paper Refill',
+      name: 'Eli Oversized Shirt',
       href: '#',
-      price: '$13',
-      description: 'High-quality refill for enhanced focus and productivity',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg',
+      price: '$148',
+      description: 'Designed to be oversized and relaxed fit throughout',
+      imageSrc: './eliTop.png',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-      unitPrice: 13, 
+      unitPrice: 148, 
       quantity: 1
     },
     {
       id: 2,
-      name: 'Focus Card Holder',
+      name: 'Classic Crew Tee',
       href: '#',
       price: '$64',
-      description: 'Stylish card holder to keep you organized and focused',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-02.jpg',
+      description: 'Designed to have a relaxed fit.',
+      imageSrc: './crewTee.png',
       imageAlt: 'Paper card sitting upright in walnut card holder on desk.',
       unitPrice: 64,
       quantity: 1
     },
     {
       id: 3,
-      name: 'Focus Carry Pouch',
+      name: 'Frankie Dress',
       href: '#',
-      price: '$32',
-      description: 'Compact pouch for organized storage and on-the-go convenience',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-03.jpg',
+      price: '$298',
+      description: 'back smocking, non-adjustable straps, square neckline, back slit',
+      imageSrc: './frankieDress.png',
       imageAlt: 'Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.',
-      unitPrice: 32, 
+      unitPrice: 298, 
       quantity: 1
     },
-  ]
+    
+]
+
+export const middleRowProducts = [
+  {
+    id: 4,
+    name: 'Val 90s Mid Rise Straight Jeans',
+    href: '#',
+    price: '$168',
+    description: 'Designed to be slouchy below the natural waist, thighs, and legs with fitted hips',
+    imageSrc: './valJeans.png',
+    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    unitPrice: 168, 
+    quantity: 1
+  },
+  {
+    id: 5,
+    name: 'Minette Top',
+    href: '#',
+    price: '$168',
+    description: 'Crepe woven fabric designed to be fitted throughout',
+    imageSrc: './minetteTop.png',
+    imageAlt: 'Paper card sitting upright in walnut card holder on desk.',
+    unitPrice: 168,
+    quantity: 1
+  },
+  {
+    id: 6,
+    name: 'Carlotta Bag',
+    href: '#',
+    price: '$398',
+    description: 'High-quality tumbled leather grain leather with subtle shine',
+    imageSrc: './carlottaBag.png',
+    imageAlt: 'Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.',
+    unitPrice: 398, 
+    quantity: 1
+  },
+]
+
+export const bottomRowProducts = [
+  {
+    id: 7,
+    name: 'Bess Linen Top',
+    href: '#',
+    price: '$148',
+    description: 'High-quality light weight linen fabric with a relaxed fit',
+    imageSrc: './vivTop.png',
+    
+    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    unitPrice: 148, 
+    quantity: 1
+  },
+  {
+    id: 8,
+    name: 'Medium Vittoria Tote Bag',
+    href: '#',
+    price: '$64',
+    description: 'a slouchy leather tote with a magnetic closure, features a decorative tie detail, and inside zip pocket with a card holder',
+    imageSrc: './bucketBag.png',
+    imageAlt: 'Paper card sitting upright in walnut card holder on desk.',
+    unitPrice: 64,
+    quantity: 1
+  },
+  {
+    id: 9,
+    name: 'Mina Top',
+    href: '#',
+    price: '$32',
+    description: 'Designed to have a relaxed fit throughout',
+    imageSrc: './minaTop.png',
+    imageAlt: 'Textured gray felt pouch for paper cards with snap button flap and elastic pen holder loop.',
+    unitPrice: 32, 
+    quantity: 1
+  },
+]
 
 export const navigation = {
     categories: [
@@ -244,7 +318,7 @@ export const footerNavigationItems = {
   ],
 }
 
-export const mainPageCenterText = "New Arrivals";
+export const mainPageCenterText = "Sustainability Collection Fall 2024";
 export const mainPageDescriptionText = "Thoughtfully designed objects for the workspace, home, and travel."
 export const featuredCollectionName = "Workspace Collection"
 export const featuredCollectionDescription = "Upgrade your desk with objects that keep you organized and clear-minded."

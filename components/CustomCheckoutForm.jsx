@@ -11,7 +11,8 @@ import {
 import {AddressElement} from '@stripe/react-stripe-js';
 import { DeliveryMethod } from './CustomPaymentFormComponents/DeliveryMethod';
 import OrderSummary from './CustomPaymentFormComponents/OrderSummary';
-
+import FooterComponent from './FooterComponent'
+import {ExpressCheckoutElement} from '@stripe/react-stripe-js';
 
 export default function CheckoutForm({parsedProducts, subtotal}) {
   const stripe = useStripe();
@@ -102,18 +103,32 @@ export default function CheckoutForm({parsedProducts, subtotal}) {
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
             <div>
               <div className="mx-auto max-w-lg">
-                <div className="App">
+              
+              {/** Stripe express Checkout Element */}
+              <ExpressCheckoutElement />
 
+                {/** The Divider with the "or" in the center */}
+                <div className="App">
+                  <div class="relative my-4">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                      <div class = "w-full border-t border-brand-dark2"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                      <span class="bg-[#faf7f0] px-4 text-sm font-bold text-brand-dark2">or</span>
+                    </div>
+                  </div>
+                  
                   {/** Address Element */}
-                  <h2 className="text-lg font-medium text-gray-900">Shipping Information</h2>
-                  <fieldset aria-label="Delivery method" className="mt-4">
-                  <Elements stripe={stripe} options={options}>
-                      <form>
-                        <AddressElement options={{mode: 'shipping'}} />
-                      </form>
-                  </Elements>
-                  </fieldset>
-                
+                  
+                    <h2 className="text-lg font-medium text-gray-900">Shipping Information</h2>
+                    <fieldset aria-label="Delivery method" className="mt-4">
+                    <Elements stripe={stripe} options={options}>
+                        <form>
+                          <AddressElement options={{mode: 'shipping'}} />
+                        </form>
+                    </Elements>
+                    </fieldset>
+                    
                   {/** Delivery Methods - standard or express */}
                   <DeliveryMethod></DeliveryMethod>
 
@@ -140,6 +155,7 @@ export default function CheckoutForm({parsedProducts, subtotal}) {
           </div>
         </div>
       </main>
+      <FooterComponent></FooterComponent>
     </div>
     
   );
