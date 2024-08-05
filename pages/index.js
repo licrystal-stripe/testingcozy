@@ -8,7 +8,7 @@ import PaymentSuccessfulBanner from '@/components/MainPageComponents/PaymentSucc
 import {useState } from 'react'
 
 export default function index() {
-  const { setNumItems, setProductsInCart } = useCart();
+  const { setNumItems, setProductsInCart, setOpenCart } = useCart();
   const [showBanner, setShowBanner] = useState(false);
   const router = useRouter();
 
@@ -28,6 +28,7 @@ export default function index() {
     * React will give you back the prev state as an argument so
     * we're just updating the state from the prev state
     */
+    setOpenCart(true)
     setNumItems((prevCount) => prevCount + 1);
     setProductsInCart((prevProducts) => {
       const existingProduct = prevProducts[product.id];

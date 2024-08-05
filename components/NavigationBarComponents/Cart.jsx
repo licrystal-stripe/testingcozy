@@ -14,10 +14,14 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { quantityChange } from '@/utils/helperFunctions';
+import { useCart } from '@/context/CartContext';
+import ContinueShopping from './CartComponents/ContinueShopping';
 
 // Maintains the Cart state including what products are in the cart & subtotal
-export default function Cart ({numItems, productsInCart, setProductsInCart, setNumItems}) {
-  const [openCart, setOpenCart] = useState(false)
+// if you want to pass the props in you can instead do Cart({numItems, productsInCart, setProductsInCart, etc..})
+export default function Cart () {
+  const {numItems, productsInCart, setProductsInCart, setNumItems, openCart, setOpenCart} = useCart();
   const [subtotal, setSubtotal] = useState(0)
   const router = useRouter();
 
@@ -70,15 +74,15 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
   * Updates the product quantity
   */
   const handleQuantityChange = (product, newQuantity) => {
-    const updatedProductsInCart = { ...productsInCart, [product.id]: { ...product, quantity: newQuantity } };
+    const updatedProductsInCart = quantityChange(product, newQuantity, productsInCart)
     setProductsInCart(updatedProductsInCart);
 
     // Recalculate total items and subtotal
-    /**const totalItems = Object.values(updatedProductsInCart).reduce((acc, item) => acc + item.quantity, 0);
+    const totalItems = Object.values(updatedProductsInCart).reduce((acc, item) => acc + item.quantity, 0);
     setNumItems(totalItems);
 
     const subtotal = Object.values(updatedProductsInCart).reduce((total, product) => total + (product.unitPrice * product.quantity), 0);
-    setSubtotal(subtotal);**/
+    setSubtotal(subtotal);
 };
 
 
@@ -229,21 +233,10 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
                           </section>
                           </form>
                         </div>
+
+                        {/** Close the cart if the customer selects Continue Shopping */}
+                        <ContinueShopping></ContinueShopping>
                         
-                        {/* Essentially another way to close the Cart by clicking "continue shopping" */}
-                        <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                          <p>
-                            or{' '}
-                            <button
-                              type="button"
-                              className="font-medium text-[#a99a78] hover:text-black"
-                              onClick={() => setOpenCart(false)}
-                            >
-                              Continue Shopping
-                              <span aria-hidden="true"> &rarr;</span>
-                            </button>
-                          </p>
-                        </div>
                       </div>
                     </div>
                   </DialogPanel>

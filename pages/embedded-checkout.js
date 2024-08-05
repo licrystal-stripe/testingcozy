@@ -14,6 +14,8 @@ export default function EmbeddedCheckoutSession() {
   const {productsInCart, itemsInCart} = router.query;
 
   // Create a Checkout Session - call the embedded_checkout_sessions API
+  // You'll notice that I currently pass in a customer object, it's not actuallly
+  // used, it's mostly there as a reminder for if I want to ever implement it
   const fetchClientSecret = useCallback(() => {
     return fetch("/api/embedded_checkout_sessions", {
       method: "POST",

@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import {useRouter } from 'next/router';
 import ReviewStars from '@/components/ProductDetailComponents/ReviewStars';
 import SizePicker from '@/components/ProductDetailComponents/SizePicker';
-import ColorPicker from '@/components/ProductDetailComponents/ColorPicker';
 import Reviews from '@/components/ProductDetailComponents/Reviews';
 import RelatedProducts from '@/components/ProductDetailComponents/RelatedProducts';
 import Policies from '@/components/ProductDetailComponents/Policies';

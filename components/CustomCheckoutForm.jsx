@@ -15,7 +15,7 @@ import OrderSummary from './CustomPaymentFormComponents/OrderSummary';
 import FooterComponent from './FooterComponent'
 import {ExpressCheckoutElement} from '@stripe/react-stripe-js';
 import { useCart } from '@/context/CartContext';
-import { calculateSubtotal } from '@/utils/constants';
+import { calculateSubtotal } from '@/utils/helperFunctions';
 
 export default function CheckoutForm({subtotal}) {
   const stripe = useStripe();
