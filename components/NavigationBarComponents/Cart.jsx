@@ -46,15 +46,9 @@ export default function Cart ({numItems, productsInCart, setProductsInCart, setN
   */ 
   const handlePaymentElement = (e) => {
     e. preventDefault(); 
-    const productsInCartJson = JSON.stringify(productsInCart)
     setOpenCart(false)
     router.push({
       pathname: '/payment-element',
-      query: {
-        productsInCart: productsInCartJson, 
-        subtotal: subtotal,
-        numItems: numItems
-      }
     })
   }
 

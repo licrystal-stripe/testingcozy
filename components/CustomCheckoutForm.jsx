@@ -1,5 +1,6 @@
 import React from 'react'
 import CheckoutNavigationBar from '@/components/CheckoutNavigationBar';
+import { useEffect } from 'react'
 
 import {
   PaymentElement,
@@ -13,12 +14,16 @@ import { DeliveryMethod } from './CustomPaymentFormComponents/DeliveryMethod';
 import OrderSummary from './CustomPaymentFormComponents/OrderSummary';
 import FooterComponent from './FooterComponent'
 import {ExpressCheckoutElement} from '@stripe/react-stripe-js';
+import { useCart } from '@/context/CartContext';
+import { calculateSubtotal } from '@/utils/constants';
 
-export default function CheckoutForm({parsedProducts, subtotal}) {
+export default function CheckoutForm({subtotal}) {
   const stripe = useStripe();
   const elements = useElements();
 
   const [message, setMessage] = React.useState(null);
+  const [newSubtotal, setNewSubtotal] = React.useState(subtotal)
+  const { productsInCart, numItems, setNumItems } = useCart();
 
   {/** If a new payment is made we check the status of that payemnt intent */}
   React.useEffect(() => {
@@ -50,9 +55,21 @@ export default function CheckoutForm({parsedProducts, subtotal}) {
           break;
       }
     });
-  }, [stripe]);
+  }, [stripe, productsInCart]);
 
-  {/** When "Confirm Order" has been clicked, we then confirm the Payemnt Intent and redirect to the home page */}
+  useEffect(() => {
+    // Recalculate the items in the Cart
+    setNumItems(numItems);
+
+    //Recalculate the Subtotal
+    const cartProducts = Object.values(productsInCart);
+    // Calculate the subtotal by reducing the cart products
+    const subtotal = calculateSubtotal(cartProducts)
+    // Update the subtotal state
+    setNewSubtotal(subtotal);
+}, [numItems, productsInCart]);
+
+  {/** When "Confirm Order" has been clicked, we then confirm the Payment Intent and redirect to the home page */}
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -82,6 +99,8 @@ export default function CheckoutForm({parsedProducts, subtotal}) {
     }
 
   };
+
+  
 
   const paymentElementOptions = {
     layout: "tabs",
@@ -150,7 +169,7 @@ export default function CheckoutForm({parsedProducts, subtotal}) {
           </div>
 
           {/* Order summary of what is in the Cart */}
-          <OrderSummary parsedProducts={parsedProducts} subtotal={subtotal} handleSubmit={handleSubmit}></OrderSummary>
+          <OrderSummary parsedProducts={productsInCart} subtotal={newSubtotal} handleSubmit={handleSubmit}></OrderSummary>
 
           </div>
         </div>

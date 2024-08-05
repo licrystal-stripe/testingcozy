@@ -324,3 +324,9 @@ export const featuredCollectionName = "Workspace Collection"
 export const featuredCollectionDescription = "Upgrade your desk with objects that keep you organized and clear-minded."
 export const featuredCollectionButtonText = "View the collection"
 export const quickAddButtonText = "Quick add"
+
+export function calculateSubtotal(cartProducts) {
+  return (cartProducts.reduce((total, product) => {
+    return total + (product.unitPrice * product.quantity);
+  }, 0))
+}

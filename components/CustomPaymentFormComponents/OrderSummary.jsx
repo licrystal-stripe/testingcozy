@@ -1,4 +1,21 @@
+import { useCart } from '@/context/CartContext';
+import { useState, useEffect } from 'react'
+
 export default function OrderSummary ({parsedProducts, subtotal, handleSubmit}) {
+  const { productsInCart, numItems, setNumItems, setProductsInCart  } = useCart();
+  const handleQuantityChange = (product, newQuantity) => {
+    const updatedProductsInCart = { ...parsedProducts, [product.id]: { ...product, quantity: newQuantity } };
+    setProductsInCart(updatedProductsInCart);
+    console.log(productsInCart)
+
+    // Recalculate total items and subtotal
+    /**const totalItems = Object.values(updatedProductsInCart).reduce((acc, item) => acc + item.quantity, 0);
+    setNumItems(totalItems);
+
+    const subtotal = Object.values(updatedProductsInCart).reduce((total, product) => total + (product.unitPrice * product.quantity), 0);
+    setSubtotal(subtotal);**/
+  };
+
     return (
         <div className="mt-10 lg:mt-0">
               <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
@@ -35,9 +52,20 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit}) 
 
                             <div className="flex flex-1 items-end justify-between pt-2">
                               <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
-
+                                
                                 <div className="flex space-x-4">
-                                  <p className="text-gray-500">Qty: {product.quantity}</p>
+                                <div className="flex flex-1 items-center text-sm">
+                                      <p className="text-gray-500 mr-2">Qty.</p>
+                                      <select
+                                          value={product.quantity}
+                                          onChange={(e) => handleQuantityChange(product, parseInt(e.target.value))}
+                                          className="w-14 rounded-md border border-gray-300 py-2.5 text-left text-base font-medium leading-5 text-gray-700 focus:border-[#a99a78] focus:outline-none focus:ring-1 focus:ring-[#a99a78] sm:text-sm"
+                                      >
+                                          {[...Array(8)].map((_, index) => (
+                                              <option key={index} value={index + 1}>{index + 1}</option>
+                                          ))}
+                                      </select>
+                                  </div>
                                 </div>
                             </div>
                         </div>
