@@ -100,7 +100,7 @@ useEffect(() => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${req.headers.origin}/?payment_status=success`,
+        return_url: `${window.location.origin}/?payment_status=success`,
         //confirmation_token: confirmationToken
       },
     });
