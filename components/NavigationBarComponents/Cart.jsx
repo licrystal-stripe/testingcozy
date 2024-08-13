@@ -52,7 +52,7 @@ export default function Cart () {
     e. preventDefault(); 
     setOpenCart(false)
     router.push({
-      pathname: '/payment-element',
+      pathname: '/payment-element-updated',
     })
   }
 

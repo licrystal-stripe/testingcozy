@@ -27,7 +27,7 @@ export default function NavigationBar({numItems, productsInCart, setProductsInCa
                         </svg>
                       
                     </a>
-                    <div> Cozy Threads </div>
+                    <div> Stripe Shop </div>
                   </div> 
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function NavigationBar({numItems, productsInCart, setProductsInCa
                       <a href="#" className="p-2 text-gray-400 hover:text-gray-500 ">
                         <span className="sr-only">Order History</span>
                       </a>
-                      <a href="/" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
+                      <a href="/order-history" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
                         Orders & Returns
                       </a>
 

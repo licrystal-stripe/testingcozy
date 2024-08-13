@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-## About Cozy Threads
+## About Stripe Shop
 
-Cozy Threads is an ecommerce brand that sells high quality, ethically-sourced apparel and accessories. This is a demo to show off Stripe's Optimized Checkout Suite
+Stripe Shop is an ecommerce brand that sells high quality, ethically-sourced apparel and accessories. This is a demo to show off Stripe's Optimized Checkout Suite
 
 ## Getting Started
 

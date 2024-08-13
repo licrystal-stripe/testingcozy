@@ -13,7 +13,8 @@ export default async function handler(req, res) {
       automatic_payment_methods: {
         enabled: true,
       },
-      payment_method_configuration: (process.env.PAYMENT_METHOD_CONFIGURATION)
+      payment_method_configuration: (process.env.PAYMENT_METHOD_CONFIGURATION), 
+      customer: 'cus_Qcb77J6xmK3a8C'
     });
   
   } else {
@@ -24,6 +25,7 @@ export default async function handler(req, res) {
       automatic_payment_methods: {
         enabled: true,
       },
+      customer: 'cus_Qcb77J6xmK3a8C'
     });
   }
   // Create a PaymentIntent with the order amount and currency

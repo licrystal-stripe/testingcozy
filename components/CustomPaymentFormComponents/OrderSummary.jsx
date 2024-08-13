@@ -1,7 +1,7 @@
 import { useCart } from '@/context/CartContext';
 import { quantityChange } from '@/utils/helperFunctions';
 
-export default function OrderSummary ({parsedProducts, subtotal, handleSubmit}) {
+export default function OrderSummary ({parsedProducts, subtotal, handleSubmit, creditCardFee}) {
   const { setProductsInCart  } = useCart();
 
   {/** code to update the product in the cart based on the new quantity */}
@@ -73,6 +73,10 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit}) 
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Subtotal</dt>
                     <dd className="text-sm font-medium text-gray-900">${subtotal}</dd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <dt className="text-sm">Credit Card Fee - 10%</dt>
+                    <dd className="text-sm font-medium text-gray-900">${creditCardFee}</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Shipping</dt>

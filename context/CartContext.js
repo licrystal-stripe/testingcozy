@@ -15,9 +15,10 @@ export const CartProvider = ({ children }) => {
   const [numItems, setNumItems] = useState(0);
   const [productsInCart, setProductsInCart] = useState([]);
   const [openCart, setOpenCart] = useState(false)
+  const [customerId, setCustomerId] = useState('cus_Qcb77J6xmK3a8C');
 
   return (
-    <CartContext.Provider value={{ numItems, setNumItems, productsInCart, setProductsInCart, openCart, setOpenCart }}>
+    <CartContext.Provider value={{ numItems, setNumItems, productsInCart, setProductsInCart, openCart, setOpenCart, customerId, setCustomerId }}>
       {children}
     </CartContext.Provider>
   );
