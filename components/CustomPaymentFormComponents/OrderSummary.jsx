@@ -72,7 +72,7 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit, c
                 <dl className="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Subtotal</dt>
-                    <dd className="text-sm font-medium text-gray-900">${subtotal}</dd>
+                    <dd className="text-sm font-medium text-gray-900">${(subtotal).toFixed(2)}</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm">Credit Card Fee - 10%</dt>
@@ -88,7 +88,7 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit, c
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 pt-6">
                     <dt className="text-base font-medium">Total</dt>
-                    <dd className="text-base font-medium text-gray-900">${subtotal}</dd>
+                    <dd className="text-base font-medium text-gray-900">${(subtotal + parseFloat(creditCardFee)).toFixed(2)}</dd>
                   </div>
                 </dl>
               

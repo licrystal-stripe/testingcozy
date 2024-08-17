@@ -78,13 +78,12 @@ export default function CheckoutForm({subtotal}) {
 
 useEffect(() => {
   if (isCreditCard) {
-    "made it to the setCreditCardFee"
-    setCreditCardFee((0.1*newSubtotal).toFixed(2))
+    const cardFee = (0.1*newSubtotal).toFixed(2)
+    setCreditCardFee(cardFee)
   } else {
-    "wrong part of useEffect"
-    setCreditCardFee(0)
+    setCreditCardFee((0).toFixed(2))
   }
-}, [isCreditCard, newSubtotal])
+}, [isCreditCard])
 
   {/** When "Confirm Order" has been clicked, we then confirm the Payment Intent and redirect to the home page */}
   const handleSubmit = async (e) => {
@@ -126,10 +125,8 @@ useEffect(() => {
 
   const handlePaymentElementChange = async(e) => {
     if (e.value.type == "card" ) {
-        console.log("made it in here")
        setIsCreditCard(true)
     } else {
-        console.log("didn't make it")
         setIsCreditCard(false)
     }
   }
