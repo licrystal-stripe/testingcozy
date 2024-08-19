@@ -71,23 +71,23 @@ export default function OrderSummary ({parsedProducts, subtotal, handleSubmit, c
               {/** Eventually I want to implement Tax so that I can show customers how easy it is to show up */}
                 <dl className="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm">Subtotal</dt>
+                    <dt className="text-sm text-gray-900">Subtotal</dt>
                     <dd className="text-sm font-medium text-gray-900">${(subtotal).toFixed(2)}</dd>
                   </div>
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm">Credit Card Fee - 10%</dt>
+                    <dt className="text-sm text-gray-900">Credit Card Fee - 10%</dt>
                     <dd className="text-sm font-medium text-gray-900">${creditCardFee}</dd>
                   </div>
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm">Shipping</dt>
+                    <dt className="text-sm text-gray-900">Shipping</dt>
                     <dd className="text-sm font-medium text-gray-900">$0.00</dd>
                   </div>
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm">Taxes</dt>
+                    <dt className="text-sm text-gray-900">Taxes</dt>
                     <dd className="text-sm font-medium text-gray-900">$0.00</dd>
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-200 pt-6">
-                    <dt className="text-base font-medium">Total</dt>
+                    <dt className="text-base font-medium text-gray-900">Total</dt>
                     <dd className="text-base font-medium text-gray-900">${(subtotal + parseFloat(creditCardFee)).toFixed(2)}</dd>
                   </div>
                 </dl>
